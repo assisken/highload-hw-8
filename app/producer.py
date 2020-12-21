@@ -17,6 +17,8 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9091'], api_version=(0, 1
 
 message = Message(type=MessageType.message, content='Hello, Bob!')
 wait_until_sent(producer.send('main_topic', message.to_json().encode('utf8')))
+print('Sent normal message')
 
 message = Message(type=MessageType.error, content='Some error')
 wait_until_sent(producer.send('main_topic', message.to_json().encode('utf8')))
+print('Sent error message')
