@@ -11,6 +11,7 @@ sudo pip3 install -r requirements.txt
 ## Запуск
 
 ```bash
+docker ps -a | tr -s ' ' | tail -n +2 | cut -d' ' -f1 | xargs docker rm --force
 chmod +x ./start.sh
 ./start.sh
 
